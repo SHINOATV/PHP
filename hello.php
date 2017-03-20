@@ -1,24 +1,45 @@
+<?php
+
+$students = [
+    "Emmanuel"  => 42,
+    "Thierry"   => 51,
+    "Pascal"    => 45,
+    "Eric"      => 48,
+    "Nicolas"   => 19
+];
+$ages = [42, 51, 45, 48, 19];
+$sum = 0;
+for ($i=0; $i<=count($ages); $i++)
+{
+    $sum += $ages[$i%4];
+}
+$average = $sum/count($ages);
+?>
+
+<!DOCTYPE html>
 <html>
 <head>
-    <title>PHP Test</title>
+    <title>Ages étudiants</title>
 </head>
 <body>
-<?php echo '<p>Emmanuel a 42 ans.</p>';
-echo '<p>Thierry a 51 ans.</p>';
-echo '<p>Pascal a 45 ans.</p>';
-echo '<p>Eric a 48 ans.</p>';
-echo '<p>Nicolas a 19 ans.</p>';
-$Emmanuel=42;
-$Thierry=51;
-$Pascal=45;
-$Eric=48;
-$Nicolas=19;
-$total= $Emmanuel+$Thierry+$Pascal+$Eric+$Nicolas;
-$moy= $total / 5 ;
-echo 'La moyenne d';
-echo '\'âge est de ';
-echo $moy;
-echo ' !';
-?>
+<table>
+    <tr>
+        <th>Noms</th>
+        <th>Ages</th>
+    </tr>
+    <?php
+    foreach ($students as $key=>$value)
+    {
+        echo "<tr>\n<td>";
+        echo $key;
+        echo "</td>\n<td>";
+        echo $value;
+        echo "</td>\n</tr>";
+    }
+    ?>
+</table>
+
+<p>Age Moyen : <?php echo $average; ?></p>
+
 </body>
 </html>
