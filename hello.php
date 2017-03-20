@@ -11,7 +11,7 @@ $ages = [42, 51, 45, 48, 19];
 $sum = 0;
 for ($i=0; $i<=count($ages); $i++)
 {
-    $sum += $ages[$i%4];
+    $sum += $ages[$i%5];
 }
 $average = $sum/count($ages);
 ?>
