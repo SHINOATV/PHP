@@ -1,45 +1,40 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Stephane
+ * Date: 20/03/17
+ * Time: 16:32
+ */
 $students = [
-    "Emmanuel"  => 42,
-    "Thierry"   => 51,
-    "Pascal"    => 45,
-    "Eric"      => 48,
-    "Nicolas"   => 19
+    [   'prenom' => "Emmanuel",
+        'age' => 42
+    ],
+    [   'prenom' => "Thierry",
+        'age'   => 51
+    ],
+    [   'prenom'    => "Pascal" ,
+        'age' => 45
+    ],
+    [   'prenom'=> "Eric",
+        'age' => 48
+    ],
+    [   'prenom' =>"Nicolas",
+        'age'=> 19
+    ]
 ];
-$ages = [42, 51, 45, 48, 19];
-$sum = 0;
-for ($i=0; $i<=count($ages); $i++)
-{
-    $sum += $ages[$i%4];
-}
-$sum = $sum - 74; // car je ne comprend pas pourquoi il y a un probleme donc je regle ce soucis manuellement lol
-$average = $sum/count($ages);
-?>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Ages étudiants</title>
-</head>
-<body>
-<table>
-    <tr>
-        <th>Noms</th>
-        <th>Ages</th>
-    </tr>
-    <?php
-    foreach ($students as $key=>$value)
-    {
-        echo "<tr>\n<td>";
-        echo $key;
-        echo "</td>\n<td>";
-        echo $value;
-        echo "</td>\n</tr>";
+if(is_array($students)) {
+    echo "<table>";
+    echo "<tr>";
+    echo "<th>prenom</th>";
+    echo "<th>age</th>";
+    echo "</tr>";
+    foreach ($students as $key => $value) {
+        echo "<tr>";
+        echo "<td>" . $value ['prenom'] . "</td>" ;
+        echo "<td>" . $value ['age'] . "</td>";
+        echo "</tr>";
     }
-    ?>
-</table>
-
-<p>Age Moyen : <?php echo $average; ?></p>
-
-</body>
-</html>
+    echo "moyenne d'age = " . array_sum(array_column($students, 'age'))/5 . "\n";
+    echo "</table>";
+}
+?>
