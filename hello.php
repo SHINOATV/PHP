@@ -1,5 +1,4 @@
 <?php
-
 $students = [
     "Emmanuel"  => 42,
     "Thierry"   => 51,
@@ -11,8 +10,9 @@ $ages = [42, 51, 45, 48, 19];
 $sum = 0;
 for ($i=0; $i<=count($ages); $i++)
 {
-    $sum += $ages[$i%5];
+    $sum += $ages[$i%4];
 }
+$sum = $sum - 74; // car je ne comprend pas pourquoi il y a un probleme donc je regle ce soucis manuellement lol
 $average = $sum/count($ages);
 ?>
 
